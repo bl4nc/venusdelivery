@@ -1,3 +1,5 @@
+import Navbar from './components/Navbar'
+import Whatsapp from './components/Whatsapp/Whatsapp'
 import './globals.css'
 import { Inter } from 'next/font/google'
 
@@ -14,8 +16,17 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="pt-br">
-      <body className={inter.className}>{children}</body>
+    <html lang="en">
+
+      <body className={inter.className}>
+        <div className='h-full w-full'>
+          <main className="flex h-full w-full flex-col items-center">
+            <Navbar />
+            {children}
+          </main>
+        </div>
+        <Whatsapp url={"123"} />
+      </body>
     </html>
   )
 }
