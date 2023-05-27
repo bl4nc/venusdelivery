@@ -1,13 +1,32 @@
-import React from 'react'
-import { BsFillPencilFill } from "react-icons/bs";
+'use client'
 
-const dados = {
-nome:"Rafael",
-tel:"75991787918",
-id:"1",
-}
+import React, { useEffect, useState } from 'react'
+import { BsFillPencilFill } from "react-icons/bs";
+import { useRouter } from 'next/navigation';
+
+
 
 export default function page() {
+    const router = useRouter()
+
+    const [dados, setDados] = useState<any[]>([]);
+
+    async function getTabela() {
+        const id_usuario = localStorage.id_usuario ?? ''
+        const res = await fetch(`http://localhost:8789/buscarContatos/${id_usuario}`, {
+            method: 'GET',
+            headers: { "Content-type": "application/json; charset=UTF-8" },
+        })
+        if (res.status == 200) {
+            setDados(await res.json())
+        }
+    }
+
+    useEffect(() => {
+        getTabela()
+    }, [])
+
+
     return (
         <div className=''>
             <div className="md:px-32 py-8 w-full ">
@@ -21,19 +40,27 @@ export default function page() {
                             </tr>
                         </thead>
                         <tbody className="text-gray-700">
-                            <tr>
-                                <td className="w-1/3 text-left py-3 px-4">Teste</td>
-                                <td className="w-1/3 text-left py-3 px-4">75-5555</td>
-                                <td className="text-left py-3 px-4">
-                                    <button>
-                                        <BsFillPencilFill />
-                                    </button>
-                                </td>
-                            </tr>
+                            {dados.map((dado, i) => {
+                                return (
+                                    <tr key={i}>
+                                        <td className="w-1/3 text-left py-3 px-4">{dado.nome_contato}</td>
+                                        <td className="w-1/3 text-left py-3 px-4">{dado.numero}</td>
+                                        <td className="text-left py-3 px-4">
+                                            <button>
+                                                <BsFillPencilFill />
+                                            </button>
+                                        </td>
+                                    </tr>
+                                )
+                            })}
                         </tbody>
                     </table>
+
                 </div>
             </div>
+            <button  onClick={() => router.push('/vu/contacts/create')} className="bg-[#5cb85c] text-white p-2 w-full">
+                Cadastrar contato
+            </button>
         </div>
     )
 }

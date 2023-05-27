@@ -26,12 +26,12 @@ export default function Home() {
         <div className="flex flex-row flex-wrap justify-around gap-y-2 p-2">
           <div className='card-venus flex flex-row items-center p-2  bg-[#c665c6] rounded-xl w-full shadow'>
             <Image alt='Imagem' width={300} height={150} src={img_venus} className='opacity-10 w-1/4'></Image>
-            <p className='w-3/4 text-white text-justify p-1 font-sm'>Nosso aplicativo de denúncias anônimas oferece a todos a oportunidade de compartilhar informações importantes sem revelar sua identidade</p>
+            <p className='w-3/4 text-white text-justify p-1 font-sm'>Nosso aplicativo de denúncias anônimas oferece a todos a oportunidade de compartilhar informações importantes sem revelar sua identidade. <b>DISK 180 NO CHAT</b></p>
           </div>
         </div>
       </div>
       {/* <div>
-        <iframe
+        <iframe className="z-500"
           src="https://viewer.typebot.io/chat-venus-25m8mqn"
         // style="border: none; width='100%'; height='600px'"
         ></iframe>
