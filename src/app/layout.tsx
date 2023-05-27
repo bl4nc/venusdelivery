@@ -23,9 +23,9 @@ export default function RootLayout({
           <main className="flex h-full w-full flex-col items-center">
             <Navbar />
             {children}
+          <Whatsapp url={"123"} />
           </main>
         </div>
-        <Whatsapp url={"123"} />
       </body>
     </html>
   )
