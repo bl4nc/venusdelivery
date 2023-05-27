@@ -10,7 +10,7 @@ export default function Layout({
     <>
       <AuthNavbar></AuthNavbar>
       <main>{children}</main>
-      <Whatsapp url=""></Whatsapp>
+      <Whatsapp></Whatsapp>
     </>
   );
 }

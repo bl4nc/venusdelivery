@@ -20,7 +20,7 @@ export default function AuthLayout({
       <main className="flex h-full w-full flex-col items-center">
         <Navbar />
         {children}
-        <Whatsapp url={"123"} />
+        <Whatsapp />
       </main>
     </div>
   )

@@ -1,18 +1,16 @@
-import Image from 'next/image'
+'use client'
+
 import "./Whatsapp.css"
 import { BsWhatsapp } from "react-icons/bs";
+import { useRouter } from 'next/navigation';
 
-export interface WhatsApp {
-  url: string;
-}
-
-export default function Whatsapp(props: WhatsApp) {
+export default function Whatsapp() {
+  const router = useRouter()
   return (
-    <div className="flex z-50 pulsaDelay btn-whatsapp">
-      <a href="" target="_blank">
-        <div className="bg-[#25d366] p-4 rounded-full  text-white">
-          <BsWhatsapp className=''/>
-          {/* <i class="fa fa-whatsapp"></i> */}
+    <div onClick={() => router.push('https://api.whatsapp.com/send?phone=5575991155066')} className="flex pulsaDelay btn-whatsapp">
+      <a target='_blank' href='https://api.whatsapp.com/send?phone=5575991155066'>
+        <div className="bg-[#25d366] p-4 rounded-full text-white">
+          <BsWhatsapp className='' />
         </div>
       </a>
     </div>
