@@ -8,7 +8,7 @@ export interface WhatsApp {
 
 export default function Whatsapp(props: WhatsApp) {
   return (
-    <div className="flex relative z-50 pulsaDelay btn-whatsapp">
+    <div className="flex z-50 pulsaDelay btn-whatsapp">
       <a href="" target="_blank">
         <div className="bg-[#25d366] p-4 rounded-full  text-white">
           <BsWhatsapp className=''/>
